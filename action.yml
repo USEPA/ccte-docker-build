@@ -53,11 +53,11 @@ runs:
         cache-to: type=gha,mode=max
 
     - name: Extract Repository Name
-        id: extract_repo_name
-        run: |
-          FULL_NAME="${{ inputs.image_name }}"
-          REPO_NAME="${FULL_NAME##*/}"
-          echo "REPO_NAME=$REPO_NAME" >> $GITHUB_ENV
+      id: extract_repo_name
+      run: |
+        FULL_NAME="${{ inputs.image_name }}"
+        REPO_NAME="${FULL_NAME##*/}"
+        echo "REPO_NAME=$REPO_NAME" >> $GITHUB_ENV
 
     - name: Delete Package Versions
       uses: actions/delete-package-versions@v4.1.0
