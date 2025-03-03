@@ -58,6 +58,7 @@ runs:
         FULL_NAME="${{ inputs.image_name }}"
         REPO_NAME="${FULL_NAME##*/}"
         echo "REPO_NAME=$REPO_NAME" >> $GITHUB_ENV
+      shell: bash
 
     - name: Delete Package Versions
       uses: actions/delete-package-versions@v4.1.0
