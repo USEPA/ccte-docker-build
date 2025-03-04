@@ -27,6 +27,9 @@ runs:
   steps:
     - name: Checkout repository
       uses: actions/checkout@v4
+      with:
+        lfs: true
+    - run: git lfs pull
 
     - name: Setup Docker buildx
       uses: docker/setup-buildx-action@v3
