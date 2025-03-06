@@ -21,6 +21,9 @@ inputs:
   env_file:
     description: 'Path to the .env file (optional)'
     required: false
+  build_args:
+    description: 'Build arguments for Docker (optional)'
+    required: false
     
 runs:
   using: 'composite'
@@ -71,6 +74,7 @@ runs:
         push: true
         tags: ${{ steps.meta.outputs.tags }}
         labels: ${{ steps.meta.outputs.labels }}
+        build-args: ${{ inputs.build_args }}
         cache-from: type=gha
         cache-to: type=gha,mode=max
 
