@@ -59,12 +59,12 @@ runs:
       run: |
         echo "Creating .env file from input text"
         echo "${{ inputs.env_text }}" > .env
-        echo "New .env file created as new.env"
+        echo "New .env file created as .env"
       shell: bash
 
     - name: Contents of .env
       if: ${{ inputs.env_text }}
-      run: ls -la
+      run: cat .env
       shell: bash
 
     - name: Build and push Docker image
