@@ -25,6 +25,10 @@ inputs:
     description: 'Build arguments for Docker (optional)'
     required: false
     
+permissions:
+  contents: read
+  packages: write 
+  
 runs:
   using: 'composite'
   steps:
