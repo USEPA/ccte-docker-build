@@ -71,21 +71,7 @@ runs:
       run: cat .env
       shell: bash
       
-   # Configure .npmrc for package installs if using "frontend" or "ui"
-    - name: Configure .npmrc
-      if: contains(inputs.image_name, 'frontend') || contains(inputs.image_name, 'ui')  # Check for "frontend" or "ui"
-      run: |
-        echo "//npm.pkg.github.com/:_authToken=${{ secrets.GITHUB_TOKEN }}" > .npmrc
-        echo "@usepa:registry=https://npm.pkg.github.com/" >> .npmrc
-      shell: bash 
-
-
-    # Set Node.js old space size if using "frontend" or "ui"
-    - name: Set Node Old Space
-      if: contains(inputs.image_name, 'frontend') || contains(inputs.image_name, 'ui')  # Check for "frontend" or "ui"
-      run: echo "NODE_OPTIONS='--max-old-space-size=1024'" >> $GITHUB_ENV 
-      shell: bash
-
+  
     - name: Build and push Docker image
       uses: docker/build-push-action@v4
       with:
