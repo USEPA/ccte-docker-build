@@ -24,6 +24,9 @@ inputs:
   build_args:
     description: 'Build arguments for Docker (optional)'
     required: false
+  npmrc_content:
+    description: 'Contents of the .npmrc file (optional)'
+    required: false
     
 permissions:
   contents: read
@@ -70,8 +73,20 @@ runs:
       if: ${{ inputs.env_text }}
       run: cat .env
       shell: bash
-      
-  
+
+    - name: Create .npmrc File from Content
+      if: ${{ inputs.npmrc_content }}
+      run: |
+        echo "Creating .npmrc file from input content"
+        echo "${{ inputs.npmrc_content }}" > .npmrc
+        echo ".npmrc file created from input content"
+      shell: bash
+
+    - name: Contents of .npmrc
+      if: ${{ inputs.npmrc_content }}
+      run: cat .npmrc
+      shell: bash
+
     - name: Build and push Docker image
       uses: docker/build-push-action@v4
       with:
