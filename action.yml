@@ -45,9 +45,7 @@ runs:
         lfs: true
 
     - name: Pull LFS files
-      run: |
-       git lfs fetch --all
-       git lfs pull
+      run: git lfs pull
       shell: bash
 
     - name: Setup Docker buildx
