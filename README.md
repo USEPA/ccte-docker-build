@@ -58,7 +58,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Use Docker GHCR Action
-        uses: your-repo/docker-ghcr-action@v1
+        uses: USEPA/ccte-docker-build@main
         with:
           username: ${{ secrets.GHCR_USERNAME }}
           password: ${{ secrets.GHCR_TOKEN }}
