@@ -114,7 +114,7 @@ runs:
       shell: bash
 
     - name: Delete Package Versions
-      uses: actions/delete-package-versions@v4.1.0
+      uses: actions/delete-package-versions@v5
       with:
         package-name: ${{ env.REPO_NAME }}
         package-type: 'container'
