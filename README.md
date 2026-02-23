@@ -69,9 +69,7 @@ jobs:
           # Optionally override defaults
           dockerfile: path/to/Dockerfile
           context: path/to/context
-          env_text: |
-            VAR1=value1
-            VAR2=value2
+          env_text:  VAR1=${{ vars.VAR1 }},VAR2=${{ vars.VARS }}
           env_secrets: SECRET1=${{ secrets.SECRET1 }},SECRET2=${{ secrets.SECRET2 }}
           build_args: ARG1=value1,ARG2=value2
           npmrc_content: |
