@@ -29,6 +29,9 @@ The **Docker GHCR Action** is a GitHub Action designed to build and push Docker 
 
 - **env_text** (optional):  
   *Description*: Environment variables as text.
+  
+- **env_secret** (optional):  
+  *Description*: Environment secret as text.
 
 - **build_args** (optional):  
   *Description*: Build arguments for Docker.
