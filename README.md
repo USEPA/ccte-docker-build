@@ -69,6 +69,7 @@ jobs:
           env_text: |
             VAR1=value1
             VAR2=value2
+          env_secrets: SECRET1=${{ secrets.SECRET1 }},SECRET2=${{ secrets.SECRET2 }}
           build_args: ARG1=value1,ARG2=value2
           npmrc_content: |
             registry=https://registry.npmjs.org/
