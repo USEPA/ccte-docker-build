@@ -119,8 +119,6 @@ runs:
         push: true
         tags: ${{ steps.meta.outputs.tags }}
         labels: ${{ steps.meta.outputs.labels }}
-        #secret-envs: ${{ inputs.env_text }}
-        #secrets: ${{ inputs.env_secrets }}
         build-args: ${{ inputs.build_args }}
         cache-from: type=gha
         cache-to: type=gha,mode=max
