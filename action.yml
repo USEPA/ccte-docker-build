@@ -68,7 +68,8 @@ runs:
       uses: docker/metadata-action@v4
       with:
         images: ${{ inputs.registry }}/${{ inputs.image_name }}
-        tags: latest
+        #tags: latest
+        tags: ${{ github.sha }}
 
     - name: Create .env File from Text
       if: ${{ inputs.env_text }}
