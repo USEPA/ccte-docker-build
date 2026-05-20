@@ -94,10 +94,10 @@ runs:
       run: cat .env
       shell: bash
       
-    #- name: Contents of .env
-     # if: ${{ inputs.env_text }}
-    #  run: cat .env
-     # shell: bash
+    - name: Contents of .env
+      if: ${{ inputs.env_text }}
+      run: cat .env
+      shell: bash
 
     - name: Create .npmrc File from Content
       if: ${{ inputs.npmrc_content }}
