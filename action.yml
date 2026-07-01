@@ -54,7 +54,7 @@ runs:
         version: latest
 
     - name: Log into registry
-      uses: docker/login-action@v2
+      uses: docker/login-action@v4
       with:
         registry: ${{ inputs.registry }}
         username: ${{ inputs.username }}
@@ -62,7 +62,7 @@ runs:
 
     - name: Extract Docker metadata
       id: meta
-      uses: docker/metadata-action@v4
+      uses: docker/metadata-action@v6
       with:
         images: ${{ inputs.registry }}/${{ inputs.image_name }}
         tags: latest
@@ -102,8 +102,6 @@ runs:
         tags: ${{ steps.meta.outputs.tags }}
         labels: ${{ steps.meta.outputs.labels }}
         build-args: ${{ inputs.build_args }}
-        cache-from: type=gha
-        cache-to: type=gha,mode=max
 
     - name: Extract Repository Name
       id: extract_repo_name
