@@ -31,7 +31,11 @@ inputs:
   npmrc_content:
     description: 'Contents of the .npmrc file (optional)'
     required: false
-    
+  no-cache:
+    description: 'Disable Docker build cache'
+    required: false
+    default: 'false'
+
 permissions:
   contents: read
   packages: write 
@@ -102,6 +106,7 @@ runs:
         tags: ${{ steps.meta.outputs.tags }}
         labels: ${{ steps.meta.outputs.labels }}
         build-args: ${{ inputs.build_args }}
+        no-cache: ${{ inputs.no-cache == 'true'}}
 
     - name: Extract Repository Name
       id: extract_repo_name
